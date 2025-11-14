@@ -23,12 +23,14 @@ export class LLMService {
     prompt: string,
     systemPrompt: string = ""
   ): Promise<string> {
+    console.log(`[LLM_SERVICE] makeRequest: API Key length=${this.apiKey?.length}, starts with=${this.apiKey?.substring(0, 10)}`);
     const headers: HeadersInit = {
       Authorization: `Bearer ${this.apiKey}`,
       "Content-Type": "application/json",
       "HTTP-Referer": "https://pdf-to-anki.vercel.app",
       "X-Title": "PDF-to-ANKI",
     };
+    console.log(`[LLM_SERVICE] Authorization header: Bearer ${this.apiKey?.substring(0, 15)}...`);
 
     const messages: any[] = [];
     if (systemPrompt) {
