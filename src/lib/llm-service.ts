@@ -199,10 +199,14 @@ Requirements:
 
 export function createLLMService(): LLMService {
   const apiKey = process.env.OPENROUTER_API_KEY;
+  console.log(`[LLM_SERVICE] createLLMService called. API Key exists: ${!!apiKey}`);
   if (!apiKey) {
+    console.error(`[LLM_SERVICE] OPENROUTER_API_KEY not found in environment variables`);
+    console.error(`[LLM_SERVICE] Available env vars: ${Object.keys(process.env).filter(k => k.includes('OPENROUTER') || k.includes('API')).join(', ')}`);
     throw new Error(
       "OPENROUTER_API_KEY environment variable is not set"
     );
   }
+  console.log(`[LLM_SERVICE] API Key found, length: ${apiKey.length}`);
   return new LLMService(apiKey);
 }
