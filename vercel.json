@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "env": [
+    {
+      "key": "OPENROUTER_API_KEY",
+      "description": "Your OpenRouter API key for LLM access",
+      "type": "secret"
+    }
+  ]
+}
