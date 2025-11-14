@@ -144,13 +144,13 @@ Each card should test ONE key concept with a natural-sounding front and clear ex
     const prompt = `Convert each fact into an Anki cloze deletion flashcard.
 
 Return ONLY a JSON array with no other text. Each object should have:
-- "front": A complete sentence with {{{{c1::key_term}}}} cloze markers
+- "front": A complete sentence with {{c1::key_term}} cloze markers
 - "back": Brief explanation of the answer
 
 Example JSON format:
 [
-  {{"front": "The capital of France is {{{{c1::Paris}}}}", "back": "Paris is the capital and largest city of France."}},
-  {{"front": "The speed of light is approximately {{{{c1::299,792,458}}}} meters per second.", "back": "This is denoted by the symbol c in physics equations."}}
+  {"front": "The capital of France is {{c1::Paris}}", "back": "Paris is the capital and largest city of France."},
+  {"front": "The speed of light is approximately {{c1::299,792,458}} meters per second.", "back": "This is denoted by the symbol c in physics equations."}
 ]
 
 Facts to convert:
@@ -158,7 +158,7 @@ ${pointsText}
 
 Requirements:
 - Each card tests ONE concept
-- Use Anki format: {{{{c1::text}}}} (double braces)
+- Use Anki format: {{c1::text}} with SINGLE braces
 - Front reads naturally with blanks
 - Back explains and reinforces the answer
 - Keep explanations concise
