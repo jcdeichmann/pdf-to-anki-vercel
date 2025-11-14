@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * PDF Processor - Client-side PDF text extraction
  */
